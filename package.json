@@ -1,0 +1,36 @@
+{
+  "name": "gulp-mip-validator",
+  "version": "1.0.0",
+  "description": "验证 MIP 规范的 gulp 插件",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuexb/gulp-mip-validator.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "MIP",
+    "mip-validator",
+    "验证MIP"
+  ],
+  "author": "xuexb <fe.xiaowu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuexb/gulp-mip-validator/issues"
+  },
+  "homepage": "https://github.com/xuexb/gulp-mip-validator#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "husky": "^0.14.3",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "gulp-util": "^3.0.8",
+    "mip-validator": "^1.5.10",
+    "through2": "^2.0.3"
+  }
+}
