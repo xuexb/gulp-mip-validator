@@ -38,7 +38,7 @@ exports.validate = options => {
         });
 
         if (!errors.length) {
-            gutil.log(`MIP HTML validation results: ${gutil.colors.green('pass')}`);
+            gutil.log(`MIP HTML validation results: ${file.relative} - ${gutil.colors.green('pass')}`);
         }
         else if (options.throws) {
             return this.emit('error', new PluginError(PLUGIN_NAME, 'MIP HTML  validation results error, please see https://www.mipengine.org/doc/2-tech/2-validate-mip.html !'));
