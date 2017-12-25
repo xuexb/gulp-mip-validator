@@ -1,6 +1,6 @@
 {
   "name": "gulp-mip-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "验证 MIP 规范的 gulp 插件",
   "main": "index.js",
   "scripts": {},
