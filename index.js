@@ -18,6 +18,8 @@ const PluginError = gutil.PluginError;
 const PLUGIN_NAME = 'gulp-mip-validator';
 
 exports.validate = options => {
+    let errorNumber = 0;
+
     options = Object.assign({
         'throws': true
     }, options);
@@ -33,6 +35,8 @@ exports.validate = options => {
         const content = file.contents.toString();
         const errors = validator.validate(content);
 
+        errorNumber += errors.length;
+
         errors.forEach(error => {
             gutil.log(`${file.relative}: ${gutil.colors.red(error.message || 'NULL')}`);
         });
@@ -40,10 +44,13 @@ exports.validate = options => {
         if (!errors.length) {
             gutil.log(`MIP HTML validation results: ${file.relative} - ${gutil.colors.green('pass')}`);
         }
-        else if (options.throws) {
-            return this.emit('error', new PluginError(PLUGIN_NAME, 'MIP HTML  validation results error, please see https://www.mipengine.org/doc/2-tech/2-validate-mip.html !'));
-        }
 
         return callback(null, file);
+    }, function (callback) {
+        if (errorNumber && options.throws) {
+            return this.emit('error', new PluginError(PLUGIN_NAME, '验证 MIP HTML 规范失败, 请访问 https://www.mipengine.org/doc/2-tech/2-validate-mip.html 获得更多帮助!'));
+        }
+
+        return callback();
     });
 };
